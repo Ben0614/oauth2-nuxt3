@@ -5,7 +5,8 @@
 /*
 參考網站
 https://developers.facebook.com/docs/facebook-login/web
-到Facebook 開發人員帳號 > 有應用程式就直接用 沒有就建立 > 應用程式編號填到下面的appId (index.html也要)
+到Facebook 開發人員帳號 > 有應用程式就直接用 沒有就建立 > 應用程式編號填到下面的appId
+
 version也會更新 要去確認
 
 https://developers.facebook.com/docs/facebook-login/web/js-example
