@@ -25,7 +25,7 @@ declare global {
     }
 }
 
-const isLogined = ref(false)
+const isLoggedIn = ref(false)
 const message = ref('請登入FB')
 
 const init = ()=>{
@@ -40,7 +40,7 @@ const init = ()=>{
             version: runtimeConfig.public.facebookApiVersion // Specify the Graph API version to use
         });
 
-        // 確認狀態 改變isLogined和message
+        // 確認狀態 改變isLoggedIn和message
         checkLoginState()
     };
 
@@ -82,7 +82,7 @@ const login = async () => {
             // userID.value = response.authResponse.userID
             // accessToken.value = response.authResponse.accessToken
 
-            // 確認狀態 改變isLogined和message
+            // 確認狀態 改變isLoggedIn和message
             checkLoginState()
         } else {
             console.log('User cancelled login or did not fully authorize.');
@@ -119,12 +119,12 @@ const getProfile = async () => {
 // 登出
 const logout = () => {
     window.FB.logout(function () {
-        // 確認狀態 改變isLogined和message
+        // 確認狀態 改變isLoggedIn和message
         checkLoginState()
     });
 }
 
-// 確認狀態 改變isLogined和message
+// 確認狀態 改變isLoggedIn和message
 function checkLoginState() {
     window.FB.getLoginStatus(function (response: any) {
         console.log('response', response);
@@ -142,14 +142,14 @@ function checkLoginState() {
 
         // 已登入
         if (response.status === 'connected') {
-            isLogined.value = true
+            isLoggedIn.value = true
 
             // 個人資料
             getProfile()
         }
         // 未登入
         if (response.status !== 'connected') {
-            isLogined.value = false
+            isLoggedIn.value = false
             message.value = '請登入FB'
         }
     });
@@ -161,12 +161,12 @@ function checkLoginState() {
     <div :style="{ display: 'flex', flexDirection: 'column', alignItems: 'center' }">
         <h1>Facebook OAuth2.0</h1>
         <h2>{{ message }}</h2>
-         <div v-if="!isLogined" :style="{marginBottom:'20px'}">
+         <div v-if="!isLoggedIn" :style="{marginBottom:'20px'}">
             <button @click="login">
                 FB登入
             </button>
         </div>
-        <div v-if="isLogined" :style="{marginBottom:'20px'}">
+        <div v-if="isLoggedIn" :style="{marginBottom:'20px'}">
             <button @click="logout">
                 FB登出
             </button>

@@ -17,7 +17,7 @@ nuxt-vue3-google-signin
   在憑證裡的"已授權的重新導向 URI" 和 "已授權的 JavaScript 來源" 寫上啟動的網址
 */
 
-const isLogined = ref(false)
+const isLoggedIn = ref(false)
 const message = ref('請登入Google')
 
 // google預設按鈕 ----------------------------------------------------------------
@@ -55,7 +55,7 @@ const getProfile = async ()=>{
         console.log('getData', getData.data)
         message.value = `歡迎回來,${getData.data.name}`
 
-        isLogined.value = true
+        isLoggedIn.value = true
 
     } catch (err) {
         console.log(err);
@@ -105,7 +105,7 @@ const googleLogout = async () => {
         await axios.post(` https://oauth2.googleapis.com/revoke?token=${accessToken.value}`)
         message.value = '請登入Google'
 
-        isLogined.value = false
+        isLoggedIn.value = false
     } catch(err){
         console.log(err);
     }
@@ -121,14 +121,14 @@ const googleLogout = async () => {
             <GoogleSignInButton @success="handleLoginSuccess" @error="handleLoginError">
             </GoogleSignInButton>
         </div> -->
-        <div v-if="!isLogined" :style="{ marginBottom: '20px' }">
+        <div v-if="!isLoggedIn" :style="{ marginBottom: '20px' }">
             <button :disabled="!isReadyToken" @click="loginToken">Google登入 (useTokenClient)</button>
         </div>
         <!-- <div :style="{ marginBottom: '20px' }">
             <button :disabled="!isReadyCode" @click="loginCode">Login with Google useCodeClient</button>
         </div> -->
-        <div v-if="isLogined" :style="{ marginBottom: '20px' }">
-            <button @click="googleLogout">登出</button>
+        <div v-if="isLoggedIn" :style="{ marginBottom: '20px' }">
+            <button @click="googleLogout">Google登出</button>
         </div>
     </div>
 </template>
