@@ -27,6 +27,8 @@ export default defineNuxtConfig({
       lineChannelSecret: process.env.NUXT_ENV_LINE_CHANNEL_SECRET,
       facebookAppId: process.env.NUXT_ENV_FACEBOOK_APP_ID,
       facebookApiVersion: process.env.NUXT_ENV_FACEBOOK_API_VERSION,
+      appleClientId: process.env.NUXT_ENV_APPLE_CLIENT_ID,
+      appleRedirectUri: process.env.NUXT_ENV_APPLE_REDIRECT_URI,
     }
   }
 })
