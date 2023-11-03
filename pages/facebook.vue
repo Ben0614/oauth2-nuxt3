@@ -17,14 +17,6 @@ https://tools.wingzero.tw/article/sn/126
 
 const runtimeConfig = useRuntimeConfig()
 
-// 類型
-declare global {
-    interface Window {
-        fbAsyncInit: () => void;
-        FB: any;
-    }
-}
-
 const isLoggedIn = ref(false)
 const message = ref('請登入FB')
 
