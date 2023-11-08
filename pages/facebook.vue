@@ -28,7 +28,7 @@ const init = ()=>{
             cookie: true,  // enable cookies to allow the server to access 
             // the session
             xfbml: true,  // parse social plugins on this page
-            // 進到自己的應用程式 > App settings > Advanced > Upgrade API version可以看到目前的版本
+            // 進到自己的應用程式 > App settings (應用程式設定) > Advanced (進階) > Upgrade API version (升級 API 版本) 可以看到目前的版本
             version: runtimeConfig.public.facebookApiVersion // Specify the Graph API version to use
         });
 
