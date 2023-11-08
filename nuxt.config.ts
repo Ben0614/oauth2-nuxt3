@@ -12,6 +12,9 @@ export default defineNuxtConfig({
      cert: 'localhost.pem'
     }
   },
+  typescript: {
+    typeCheck: true
+  },
   devtools: { enabled: false },
   modules: ['nuxt-vue3-google-signin'],
   googleSignIn: {
