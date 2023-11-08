@@ -1,12 +1,4 @@
 <script lang="ts" setup>
-// 類型 (facebook和apple會需要)
-declare global {
-  interface Window {
-    fbAsyncInit: () => void;
-    FB: any;
-    AppleID: any;
-  }
-}
 
 </script>
 <template>
